@@ -110,6 +110,12 @@ create policy "settings: admin update" on public.settings
 
 insert into public.settings (id, data) values (1, '{}') on conflict (id) do nothing;
 
+-- ---------- Table permissions (row-level security above still decides which rows) ----------
+grant select on public.products, public.settings to anon, authenticated;
+grant insert, update, delete on public.products, public.settings to authenticated;
+grant select, insert, update, delete on public.orders to authenticated;
+grant usage, select on all sequences in schema public to authenticated;
+
 -- ---------- Photo storage (public bucket, only admins can upload) ----------
 insert into storage.buckets (id, name, public)
 values ('product-images', 'product-images', true)
