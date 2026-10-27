@@ -3,380 +3,54 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sixer Studio</title>
-<meta name="description" content="Custom cricket jerseys with your name and number. Design live, build team orders, delivered across India.">
+<title>Sixer Studio — Custom Cricket Jerseys</title>
+<meta name="description" content="Custom cricket jerseys with your name and number. Book online, confirm on WhatsApp, delivered across India.">
+<meta name="theme-color" content="#0a1f44">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#f6f7fb;--surface:#fff;--surface-2:#eef0f6;--text:#0d1220;--muted:#5b6478;--line:#dfe3ec;
-  --brand:#0a1f44;--brand-ink:#fff;--accent:#c6ff1a;--hot:#ff4d2e;--ok:#14a44d;
-  --shadow:0 10px 30px rgba(10,31,68,.08);--radius:16px;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--bg:#070b16;--surface:#0f1626;--surface-2:#172036;--text:#eef2ff;--muted:#9aa5bf;--line:#22304d;--brand:#c6ff1a;--brand-ink:#070b16;--shadow:0 10px 30px rgba(0,0,0,.45)}
-}
-:root[data-theme="dark"]{--bg:#070b16;--surface:#0f1626;--surface-2:#172036;--text:#eef2ff;--muted:#9aa5bf;--line:#22304d;--brand:#c6ff1a;--brand-ink:#070b16;--shadow:0 10px 30px rgba(0,0,0,.45)}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-svg{display:block;max-width:100%}
-button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
-input,select,textarea{font:inherit;color:inherit}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
-.display{font-family:'Bebas Neue',Impact,sans-serif;letter-spacing:.5px;line-height:.95;font-weight:400}
-h2.display{font-size:clamp(2.3rem,5vw,3.4rem)}
-.eyebrow{font-size:.76rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--hot);margin-bottom:6px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:700;font-size:.95rem;transition:transform .15s,box-shadow .2s,border-color .2s}
-.btn:active{transform:scale(.97)}
-.btn-primary{background:var(--accent);color:#0a1f44}
-.btn-primary:hover{box-shadow:0 8px 24px rgba(198,255,26,.45)}
-.btn-dark{background:var(--brand);color:var(--brand-ink)}
-.btn-ghost{border:1.5px solid var(--line);background:var(--surface)}
-.btn-ghost:hover{border-color:var(--text)}
-.btn-outline-light{border:1.5px solid rgba(255,255,255,.35);color:#fff}
-.btn-outline-light:hover{border-color:#fff}
-.btn-sm{padding:8px 14px;font-size:.85rem}
-.btn-block{width:100%}
-section{padding:72px 0}
-.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:28px}
-.sec-head p{color:var(--muted);max-width:520px}
-.field{padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);outline:none;width:100%}
-.field:focus{border-color:var(--text)}
-.muted{color:var(--muted)}
-
-/* top bars */
-.announce{background:var(--hot);color:#fff;text-align:center;font-size:.84rem;font-weight:600;padding:8px 16px}
-.ticker{background:#050914;color:#e8ecf7;font-size:.8rem;overflow:hidden;white-space:nowrap;border-bottom:1px solid #1a2440;display:flex}
-.ticker-label{background:#ff3b3b;color:#fff;font-weight:800;padding:8px 12px;flex-shrink:0;z-index:1;letter-spacing:.06em}
-.ticker-track{overflow:hidden;flex:1}
-.ticker-inner{display:inline-flex;gap:44px;padding:8px 0 8px 20px;animation:tick 45s linear infinite}
-.ticker:hover .ticker-inner{animation-play-state:paused}
-.ticker-inner b{color:#c6ff1a}
-@keyframes tick{to{transform:translateX(-50%)}}
-.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#fff;margin-right:6px;animation:pulse 1.2s infinite;vertical-align:middle}
-@keyframes pulse{50%{opacity:.25}}
-
-/* header */
-header.site{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;gap:16px;height:68px;position:relative}
-.logo{display:flex;align-items:center;gap:10px;font-family:'Bebas Neue',Impact,sans-serif;font-size:1.7rem;letter-spacing:1px;white-space:nowrap}
-.logo-mark{width:36px;height:36px;border-radius:10px;background:#0a1f44;color:#c6ff1a;display:grid;place-items:center;font-size:1.25rem}
-.nav-links{display:flex;gap:2px;margin-left:8px}
-.nav-links a{padding:8px 12px;border-radius:999px;font-weight:600;font-size:.88rem;color:var(--muted);white-space:nowrap}
-.nav-links a:hover{color:var(--text);background:var(--surface-2)}
-.nav-tools{margin-left:auto;display:flex;align-items:center;gap:4px}
-.search{position:relative}
-.search input{width:200px;padding:9px 14px 9px 36px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);outline:none}
-.search input:focus{border-color:var(--text)}
-.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;opacity:.6}
-.icon-btn{position:relative;width:40px;height:40px;border-radius:50%;display:grid;place-items:center}
-.icon-btn:hover{background:var(--surface-2)}
-.icon-btn svg{width:20px;height:20px}
-.badge{position:absolute;top:1px;right:-1px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--hot);color:#fff;font-size:.66rem;font-weight:800;display:grid;place-items:center}
-.badge[data-n="0"]{display:none}
-.menu-btn{display:none}
-@media(max-width:1060px){
-  .nav-links{display:none;position:absolute;top:68px;left:-16px;right:-16px;flex-direction:column;background:var(--surface);padding:12px 16px;border-bottom:1px solid var(--line);margin:0;box-shadow:var(--shadow)}
-  .nav-links.open{display:flex}
-  .menu-btn{display:grid}
-}
-@media(max-width:640px){.search{display:none}}
-
-/* hero */
-.hero{background:radial-gradient(900px 500px at 85% 15%,#1d4296 0%,transparent 60%),radial-gradient(600px 400px at 0% 100%,#3a1a5e 0%,transparent 60%),#0a1f44;color:#fff;padding:60px 0 96px;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.hero h1{font-size:clamp(3.2rem,8vw,5.8rem)}
-.hero h1 em{font-style:normal;color:#c6ff1a}
-.hero .lead{color:#c5cee3;font-size:1.08rem;max-width:520px;margin:18px 0 26px}
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
-.hero-stats{display:flex;gap:32px;margin-top:34px;flex-wrap:wrap}
-.hero-stats b{display:block;font-family:'Bebas Neue',Impact,sans-serif;font-size:2.1rem;color:#c6ff1a;font-weight:400;line-height:1}
-.hero-stats span{font-size:.82rem;color:#9fb0d6}
-.sale-timer{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);padding:6px 14px;border-radius:999px;font-size:.82rem;margin-bottom:18px}
-.sale-timer b{font-variant-numeric:tabular-nums;color:#c6ff1a}
-.hero-visual{position:relative;display:grid;place-items:center;min-height:360px}
-.ring{position:absolute;width:86%;aspect-ratio:1;border-radius:50%;border:2px dashed rgba(198,255,26,.35);animation:spin 40s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.hero-jersey{width:min(380px,88%);filter:drop-shadow(0 30px 40px rgba(0,0,0,.5));animation:float 5s ease-in-out infinite;transition:opacity .45s}
-@keyframes float{50%{transform:translateY(-12px) rotate(-1.5deg)}}
-.hero-tag{position:absolute;background:#fff;color:#0a1f44;border-radius:14px;padding:10px 14px;font-size:.8rem;font-weight:700;box-shadow:0 12px 30px rgba(0,0,0,.3);white-space:nowrap}
-.hero-tag.t1{top:12%;left:0}.hero-tag.t2{bottom:14%;right:0}
-@media(max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-visual{order:-1;min-height:260px}.hero-jersey{width:230px}.hero{padding-top:36px}.hero-tag{font-size:.7rem;padding:7px 10px}.hero-tag.t1{top:auto;bottom:0;left:0}.hero-tag.t2{bottom:0;right:0}}
-
-/* trust */
-.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:-48px;position:relative;z-index:2}
-.trust>div{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:center}
-.trust .ic{font-size:1.5rem}
-.trust b{display:block;font-size:.93rem}
-.trust span{font-size:.8rem;color:var(--muted)}
-@media(max-width:860px){.trust{grid-template-columns:1fr 1fr}}
-
-/* shop */
-.toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:24px}
-.chips{display:flex;gap:8px;flex-wrap:wrap}
-.chip{padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-weight:600;font-size:.86rem}
-.chip.active{background:var(--text);color:var(--bg);border-color:var(--text)}
-.toolbar .grow{flex:1;min-width:180px}
-.toolbar select{width:auto}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
-.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.card-media{position:relative;aspect-ratio:1;background:linear-gradient(160deg,var(--surface-2),var(--surface));cursor:pointer}
-.card-media .face{position:absolute;inset:11%;transition:opacity .35s,transform .35s}
-.card-media .back{opacity:0;transform:scale(.95)}
-.card:hover .card-media .front{opacity:0}
-.card:hover .card-media .back{opacity:1;transform:none}
-.tag{position:absolute;top:12px;left:12px;background:var(--text);color:var(--bg);font-size:.68rem;font-weight:800;padding:4px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.05em;z-index:1}
-.off{position:absolute;bottom:12px;left:12px;background:var(--hot);color:#fff;font-size:.72rem;font-weight:800;padding:3px 8px;border-radius:6px;z-index:1}
-.flip-hint{position:absolute;bottom:12px;right:12px;font-size:.68rem;font-weight:700;color:var(--muted);z-index:1}
-.heart{position:absolute;top:10px;right:10px;width:36px;height:36px;border-radius:50%;background:var(--surface);display:grid;place-items:center;box-shadow:0 2px 8px rgba(0,0,0,.12);z-index:2}
-.heart svg{width:18px;height:18px}
-.heart.on svg{fill:var(--hot);stroke:var(--hot)}
-.card-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:5px;flex:1}
-.card-body h3{font-size:1rem;font-weight:700}
-.stars{color:#f5a623;font-size:.8rem}
-.stars span{color:var(--muted)}
-.price{display:flex;gap:8px;align-items:baseline}
-.price b{font-size:1.15rem}
-.price s{color:var(--muted);font-size:.85rem}
-.card-actions{display:flex;gap:8px;margin-top:auto;padding-top:8px}
-.card-actions .btn{flex:1}
-.empty{grid-column:1/-1;text-align:center;padding:48px;color:var(--muted)}
-
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
-.step .n{font-family:'Bebas Neue',Impact,sans-serif;font-size:3rem;color:var(--hot);line-height:1}
-.step h3{margin:6px 0}
-.step p{color:var(--muted);font-size:.93rem}
-@media(max-width:760px){.steps{grid-template-columns:1fr}}
-
-/* studio */
-.studio{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.studio-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
-.stage{position:sticky;top:90px;background:repeating-linear-gradient(45deg,var(--surface-2) 0 14px,var(--bg) 14px 28px);border-radius:24px;padding:28px;border:1px solid var(--line)}
-.stage-svg svg{width:100%;max-width:420px;margin:0 auto;filter:drop-shadow(0 20px 30px rgba(0,0,0,.25))}
-.stage-tools{display:flex;justify-content:center;gap:8px;margin-top:16px;flex-wrap:wrap}
-.seg{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px}
-.seg button{padding:7px 14px;border-radius:999px;font-weight:600;font-size:.84rem}
-.seg button.active{background:var(--text);color:var(--bg)}
-.panel{display:flex;flex-direction:column;gap:22px}
-.lbl{display:block;font-weight:700;font-size:.84rem;margin-bottom:8px}
-.lbl small{font-weight:500;color:var(--muted)}
-.pattern-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.pat{border:2px solid var(--line);border-radius:12px;padding:6px 4px;background:var(--bg);font-size:.7rem;font-weight:700;text-transform:capitalize}
-.pat.active{border-color:var(--hot)}
-.pat svg{width:100%;height:54px}
-.palettes{display:flex;gap:8px;flex-wrap:wrap}
-.pal{display:flex;border-radius:999px;overflow:hidden;border:2px solid var(--line);height:28px}
-.pal i{width:18px}
-.pal:hover{border-color:var(--text)}
-.colors{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px}
-.color{display:flex;align-items:center;gap:8px;font-size:.84rem;font-weight:600}
-.color input{width:40px;height:40px;border:1px solid var(--line);border-radius:10px;padding:2px;background:var(--surface);cursor:pointer}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.sizes{display:flex;gap:6px;flex-wrap:wrap}
-.size{min-width:46px;padding:8px 10px;border-radius:10px;border:1.5px solid var(--line);font-weight:700;font-size:.8rem;background:var(--surface)}
-.size.active{background:var(--text);color:var(--bg);border-color:var(--text)}
-.qty{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:999px;background:var(--surface)}
-.qty button{width:34px;height:34px;font-weight:800;font-size:1rem}
-.qty span{min-width:26px;text-align:center;font-weight:700}
-.check{display:flex;gap:10px;align-items:center;font-size:.9rem;cursor:pointer}
-.check input{width:18px;height:18px;accent-color:var(--ok)}
-.total-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border-radius:16px;background:var(--surface-2);flex-wrap:wrap}
-.total-bar b{font-size:1.5rem}
-.total-bar .btns{display:flex;gap:8px;flex-wrap:wrap}
-@media(max-width:860px){.studio-grid{grid-template-columns:1fr}.stage{position:relative;top:0}}
-
-/* team */
-.team-grid{display:grid;grid-template-columns:1.45fr .9fr;gap:24px;align-items:start}
-.box{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
-.box h3{margin-bottom:12px}
-.table-scroll{overflow-x:auto}
-.roster{width:100%;border-collapse:collapse;font-size:.9rem;min-width:440px}
-.roster th{text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:6px}
-.roster td{padding:4px}
-.roster input,.roster select{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);outline:none}
-.roster input:focus,.roster select:focus{border-color:var(--text)}
-.roster tr.dup input.num{border-color:var(--hot);background:color-mix(in srgb,var(--hot) 14%,var(--bg))}
-.roster .del{color:var(--muted);font-size:1.2rem;width:32px}
-.roster .del:hover{color:var(--hot)}
-.team-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.paste{margin-top:16px}
-.paste textarea{min-height:80px;resize:vertical}
-.warn{color:var(--hot);font-size:.84rem;font-weight:600;margin-top:8px;min-height:1.2em}
-.tiers{display:grid;gap:8px;margin:12px 0}
-.tier{display:flex;justify-content:space-between;padding:10px 12px;border-radius:10px;border:1px solid var(--line);font-size:.87rem}
-.tier.active{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent);font-weight:700}
-.line{display:flex;justify-content:space-between;padding:5px 0;font-size:.92rem}
-.line.total{border-top:1px solid var(--line);margin-top:6px;padding-top:10px;font-weight:800;font-size:1.1rem}
-.mini-jersey{width:130px;margin:0 auto 6px}
-.size-pills{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
-.size-pills span{background:var(--surface-2);border-radius:999px;padding:3px 10px;font-size:.76rem;font-weight:700}
-@media(max-width:900px){.team-grid{grid-template-columns:1fr}}
-.team-grid>*,.size-grid>*,.studio-grid>*,.hero-grid>*,.qv>*{min-width:0}
-
-/* size */
-.size-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:start}
-table.chart{width:100%;border-collapse:collapse;font-size:.88rem}
-table.chart th,table.chart td{padding:10px;border-bottom:1px solid var(--line);text-align:left}
-table.chart th{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
-table.chart tr.hl td{background:color-mix(in srgb,var(--accent) 40%,transparent);font-weight:800}
-.result{margin-top:14px;padding:16px;border-radius:12px;background:var(--surface-2);text-align:center}
-.result b{font-family:'Bebas Neue',Impact,sans-serif;font-size:2.8rem;display:block;line-height:1;font-weight:400}
-.form-grid{display:grid;gap:12px}
-@media(max-width:860px){.size-grid{grid-template-columns:1fr}}
-
-/* reviews */
-.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.review{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:12px}
-.review p{color:var(--muted);font-size:.94rem}
-.who{display:flex;gap:10px;align-items:center;font-size:.88rem}
-.avatar{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff}
-.demo-note{font-size:.78rem;color:var(--muted);margin-top:14px;text-align:center}
-@media(max-width:860px){.reviews{grid-template-columns:1fr}}
-
-/* track */
-.track-box{max-width:720px;margin:0 auto}
-.track-form{display:flex;gap:10px}
-.timeline{list-style:none;margin-top:24px}
-.timeline li{position:relative;padding:0 0 22px 36px;color:var(--muted)}
-.timeline li::before{content:'';position:absolute;left:9px;top:22px;bottom:0;width:2px;background:var(--line)}
-.timeline li:last-child::before{display:none}
-.timeline .dot{position:absolute;left:0;top:2px;width:20px;height:20px;border-radius:50%;border:2px solid var(--line);background:var(--surface)}
-.timeline li.done{color:var(--text)}
-.timeline li.done .dot{background:var(--ok);border-color:var(--ok)}
-.timeline li.done::before{background:var(--ok)}
-.timeline li.current{color:var(--text);font-weight:700}
-.timeline li.current .dot{background:#c6ff1a;border-color:#0a1f44;box-shadow:0 0 0 5px color-mix(in srgb,#c6ff1a 40%,transparent)}
-.timeline small{display:block;font-weight:400;color:var(--muted)}
-
-/* faq */
-.faq{max-width:820px;margin:0 auto}
-details{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;padding:0 18px}
-summary{list-style:none;cursor:pointer;padding:16px 0;font-weight:700;display:flex;justify-content:space-between;gap:12px}
-summary::-webkit-details-marker{display:none}
-summary::after{content:'+';font-size:1.4rem;line-height:1;transition:transform .2s}
-details[open] summary::after{transform:rotate(45deg)}
-details p{padding:0 0 16px;color:var(--muted)}
-
-/* cta / footer */
-.cta{background:#c6ff1a;color:#0a1f44;border-radius:28px;padding:48px;display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center}
-.cta h2{font-size:clamp(2.4rem,6vw,4rem)}
-.news{display:flex;gap:8px;flex-wrap:wrap}
-.news input{flex:1;min-width:180px;padding:12px 16px;border-radius:999px;border:2px solid #0a1f44;background:#fff;color:#0a1f44;outline:none}
-.news .btn{background:#0a1f44;color:#fff}
-@media(max-width:760px){.cta{grid-template-columns:1fr;padding:32px 22px}}
-footer{background:#050914;color:#aab4cc;padding:56px 0 100px;margin-top:72px;font-size:.9rem}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
-footer h4{color:#fff;margin-bottom:12px}
-footer ul{list-style:none}
-footer li{margin-bottom:8px}
-footer a:hover{color:#c6ff1a}
-.foot-bottom{border-top:1px solid #1a2440;margin-top:36px;padding-top:20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.8rem}
-@media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}}
-
-/* overlay, drawer, modal */
-.overlay{position:fixed;inset:0;background:rgba(5,9,20,.55);opacity:0;pointer-events:none;transition:opacity .25s;z-index:80}
-.overlay.show{opacity:1;pointer-events:auto}
-.drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--surface);z-index:90;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column}
-.drawer.open{transform:none}
-.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
-.drawer-body{flex:1;overflow:auto;padding:12px 20px}
-.drawer-foot{border-top:1px solid var(--line);padding:16px 20px;display:grid;gap:10px}
-.ship-note{font-size:.84rem}
-.ship-bar{height:6px;border-radius:3px;background:var(--surface-2);overflow:hidden;margin-top:6px}
-.ship-bar i{display:block;height:100%;background:var(--ok);transition:width .3s}
-.ci{display:grid;grid-template-columns:70px 1fr auto;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}
-.ci .thumb{background:var(--surface-2);border-radius:12px;padding:6px}
-.ci h4{font-size:.88rem}
-.ci small{color:var(--muted);display:block;font-size:.78rem}
-.ci .rm{color:var(--muted);font-size:.78rem;text-decoration:underline;margin-top:4px}
-.ci .right{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
-.coupon{display:flex;gap:8px}
-.coupon-msg{font-size:.8rem;min-height:1em}
-.modal{position:fixed;left:50%;top:50%;transform:translate(-50%,-46%) scale(.98);opacity:0;pointer-events:none;z-index:95;width:min(880px,calc(100% - 24px));max-height:calc(100% - 32px);overflow:auto;background:var(--surface);border-radius:24px;transition:opacity .25s,transform .25s;box-shadow:0 30px 80px rgba(0,0,0,.35)}
-.modal.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
-.modal.sm{width:min(520px,calc(100% - 24px))}
-.modal-close{position:absolute;top:12px;right:12px;z-index:2;background:var(--surface)}
-.qv{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:28px}
-.qv-stage{background:var(--surface-2);border-radius:18px;padding:20px}
-.qv-info{display:flex;flex-direction:column;gap:14px}
-.modal-pad{padding:28px}
-@media(max-width:700px){.qv{grid-template-columns:1fr;padding:20px}}
-.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140px);background:var(--text);color:var(--bg);padding:12px 20px;border-radius:999px;font-weight:600;font-size:.9rem;z-index:100;transition:transform .3s;box-shadow:var(--shadow);max-width:calc(100% - 32px);text-align:center}
-.toast{opacity:0}
-.toast.show{transform:translateX(-50%);opacity:1}
-.fab{position:fixed;right:18px;bottom:18px;z-index:70;width:56px;height:56px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;box-shadow:0 10px 24px rgba(20,164,77,.4)}
-.fab svg{width:26px;height:26px}
-.chat{position:fixed;right:18px;bottom:86px;width:min(340px,calc(100% - 36px));background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);z-index:70;display:none;flex-direction:column;overflow:hidden}
-.chat.open{display:flex}
-.chat-head{background:var(--ok);color:#fff;padding:14px 16px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
-.chat-head small{display:block;font-weight:500;opacity:.85}
-.chat-log{padding:14px;display:flex;flex-direction:column;gap:8px;max-height:280px;overflow:auto;font-size:.87rem}
-.msg{padding:9px 12px;border-radius:14px;max-width:85%}
-.msg.bot{background:var(--surface-2);align-self:flex-start}
-.msg.me{background:var(--ok);color:#fff;align-self:flex-end}
-.quick{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 14px}
-.quick button{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.78rem;font-weight:600}
-.quick button:hover{border-color:var(--ok);color:var(--ok)}
-.pay-opts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.pay-opts label{border:1.5px solid var(--line);border-radius:12px;padding:10px;text-align:center;font-weight:700;font-size:.85rem;cursor:pointer}
-.pay-opts input{display:none}
-.pay-opts input:checked+span{color:var(--ok)}
-.pay-opts label:has(input:checked){border-color:var(--ok)}
-.success{text-align:center;padding:40px 28px}
-.success .big{font-size:3rem}
-.order-id{font-family:'Bebas Neue',Impact,sans-serif;font-size:2.4rem;letter-spacing:2px;margin:8px 0}
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="announce">🏏 Free shipping on orders over ₹999 · Use <b>FIRST10</b> for 10% off your first order</div>
-<div class="ticker" aria-label="Live local league scores (simulated)">
-  <div class="ticker-label"><span class="live-dot"></span>LIVE</div>
-  <div class="ticker-track"><div class="ticker-inner" id="ticker"></div></div>
-</div>
+<div id="demoBar"></div>
+<div class="announce" id="announce">🏏 Book your custom jersey online — we confirm delivery on WhatsApp</div>
 
 <header class="site">
   <div class="wrap nav">
     <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
-    <a href="#top" class="logo"><span class="logo-mark">S</span>SIXER STUDIO</a>
+    <a href="#top" class="logo"><span class="logo-mark" id="logoMark">S</span><span id="storeName">SIXER STUDIO</span></a>
     <nav class="nav-links" id="navLinks">
       <a href="#shop">Shop</a>
       <a href="#studio">Design Studio</a>
       <a href="#team">Team Order</a>
       <a href="#sizes">Size Finder</a>
-      <a href="#track">Track Order</a>
       <a href="#faq">FAQ</a>
+      <a href="#" data-open="orders">My Orders</a>
     </nav>
     <div class="nav-tools">
       <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="headerSearch" type="search" placeholder="Search jerseys…" aria-label="Search jerseys"></label>
       <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
       <button class="icon-btn" id="wishBtn" aria-label="Wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span class="badge" id="wishCount" data-n="0">0</span></button>
+      <button class="icon-btn" id="acctBtn" aria-label="Account" style="width:auto;padding:0 8px;border-radius:999px;gap:6px;display:flex;align-items:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg><span class="acct-hello" id="acctLabel">Login</span></button>
       <button class="icon-btn" id="cartBtn" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="badge" id="cartCount" data-n="0">0</span></button>
     </div>
   </div>
 </header>
 
 <main id="top">
-<!-- HERO -->
 <div class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="sale-timer">⚡ Season sale ends in <b id="saleTimer">--:--:--</b></div>
       <h1 class="display">Your name.<br>Your number.<br><em>Your kit.</em></h1>
-      <p class="lead">Design a match-ready cricket jersey in seconds. Pick a pattern, choose your colours, add every player's name and number, and we sublimation-print the full kit. Kids 2–3 yrs to adult 6XL.</p>
+      <p class="lead">Pick a design or create your own, add every player's name and number, and book in a minute. No online payment — we confirm your delivery date on WhatsApp.</p>
       <div class="hero-cta">
-        <a href="#studio" class="btn btn-primary">🎨 Design your jersey</a>
-        <a href="#team" class="btn btn-outline-light">Team / bulk order</a>
+        <a href="#shop" class="btn btn-primary">🛍️ Shop jerseys</a>
+        <a href="#studio" class="btn btn-outline-light">🎨 Design your own</a>
       </div>
       <div class="hero-stats">
-        <div><b>From ₹449</b><span>per jersey</span></div>
-        <div><b>3–4 days</b><span>to print</span></div>
+        <div><b id="heroFrom">From ₹349</b><span>per jersey</span></div>
+        <div><b>Book now</b><span>pay on confirmation</span></div>
         <div><b>Kids–6XL</b><span>15 sizes</span></div>
       </div>
     </div>
@@ -384,7 +58,7 @@ footer a:hover{color:#c6ff1a}
       <div class="ring"></div>
       <div class="hero-jersey" id="heroJersey"></div>
       <div class="hero-tag t1">✓ Name &amp; number printed</div>
-      <div class="hero-tag t2">⚡ Quick-dry fabric</div>
+      <div class="hero-tag t2">💬 Confirm on WhatsApp</div>
     </div>
   </div>
 </div>
@@ -393,58 +67,48 @@ footer a:hover{color:#c6ff1a}
   <div class="trust">
     <div><span class="ic">🎽</span><div><b>Your name &amp; number</b><span>Printed on every jersey</span></div></div>
     <div><span class="ic">📏</span><div><b>Kids to 6XL</b><span>Size finder included</span></div></div>
-    <div><span class="ic">🔒</span><div><b>Secure payment</b><span>UPI, cards, netbanking</span></div></div>
-    <div><span class="ic">🚚</span><div><b>Pan-India delivery</b><span>Free over ₹999</span></div></div>
+    <div><span class="ic">💸</span><div><b>No online payment</b><span>Book now, pay later</span></div></div>
+    <div><span class="ic">💬</span><div><b>WhatsApp updates</b><span>Delivery date confirmed</span></div></div>
   </div>
 </div>
 
-<!-- SHOP -->
 <section id="shop">
   <div class="wrap">
     <div class="sec-head">
-      <div><div class="eyebrow">Shop</div><h2 class="display">Match-day designs</h2></div>
-      <p>Hover a jersey to see the back. Every design can be personalised with a name and number, or opened in the Design Studio to change colours.</p>
+      <div><div class="eyebrow">Shop</div><h2 class="display">Our designs</h2></div>
+      <p>Tap a jersey to see photos, pick your size and add a name and number.</p>
     </div>
     <div class="toolbar">
-      <div class="chips" id="chips">
-        <button class="chip active" data-f="all">All</button>
-        <button class="chip" data-f="polo">Polo collar</button>
-        <button class="chip" data-f="round">Round neck</button>
-        <button class="chip" data-f="kids">Kids</button>
-        <button class="chip" data-f="combo">Combos</button>
-        <button class="chip" data-f="wish">♥ Wishlist</button>
-      </div>
+      <div class="chips" id="chips"></div>
       <input class="field grow" id="shopSearch" type="search" placeholder="Search by name, style, tag…" aria-label="Search products">
       <select class="field" id="sortSel" aria-label="Sort">
         <option value="featured">Featured</option>
+        <option value="new">Newest</option>
         <option value="low">Price: low to high</option>
         <option value="high">Price: high to low</option>
         <option value="disc">Biggest discount</option>
-        <option value="rating">Top rated</option>
       </select>
     </div>
-    <div class="grid" id="grid"></div>
+    <div class="grid" id="grid"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div>
   </div>
 </section>
 
-<!-- HOW -->
 <section style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head"><div><div class="eyebrow">How it works</div><h2 class="display">Your kit in 3 steps</h2></div></div>
+    <div class="sec-head"><div><div class="eyebrow">How it works</div><h2 class="display">Book in 3 steps</h2></div></div>
     <div class="steps">
-      <div class="step"><div class="n">01</div><h3>Pick or design</h3><p>Choose a ready design or build your own in the Design Studio with any pattern and colours.</p></div>
-      <div class="step"><div class="n">02</div><h3>Add names &amp; numbers</h3><p>Personalise one jersey, or paste a whole player list into the Team Order builder.</p></div>
-      <div class="step"><div class="n">03</div><h3>We print &amp; ship</h3><p>Sublimation printed in 3–4 days, then delivered anywhere in India. Track it right here.</p></div>
+      <div class="step"><div class="n">01</div><h3>Pick &amp; personalise</h3><p>Choose a design or build one in the Design Studio. Add names, numbers and sizes.</p></div>
+      <div class="step"><div class="n">02</div><h3>Book &amp; send on WhatsApp</h3><p>Log in, enter your address and book. Your order details open in WhatsApp — just tap send.</p></div>
+      <div class="step"><div class="n">03</div><h3>We confirm delivery</h3><p>We message you with the delivery date and payment details. Track it any time in My Orders.</p></div>
     </div>
   </div>
 </section>
 
-<!-- STUDIO -->
 <section class="studio" id="studio">
   <div class="wrap">
     <div class="sec-head">
-      <div><div class="eyebrow">New · Design Studio</div><h2 class="display">Build your own jersey, live</h2></div>
-      <p>Every change updates the preview instantly. Download your design as an image or copy a share link to send to your team.</p>
+      <div><div class="eyebrow">Design Studio</div><h2 class="display">Build your own jersey, live</h2></div>
+      <p>Every change updates the preview instantly. Download your design or copy a link to send to your team.</p>
     </div>
     <div class="studio-grid">
       <div class="stage">
@@ -474,14 +138,14 @@ footer a:hover{color:#c6ff1a}
         </div>
         <div class="row2">
           <label><span class="lbl">Number</span><input class="field" id="sNum" type="number" min="0" max="99"></label>
-          <div><span class="lbl">Quantity</span><div class="qty"><button data-q="-1" aria-label="Decrease">−</button><span id="sQty">1</span><button data-q="1" aria-label="Increase">+</button></div></div>
+          <div><span class="lbl">Quantity</span><div class="qty" id="sQtyBox"><button data-q="-1" aria-label="Decrease">−</button><span id="sQty">1</span><button data-q="1" aria-label="Increase">+</button></div></div>
         </div>
         <div><span class="lbl">Size <small>— not sure? <a href="#sizes" style="text-decoration:underline">use the size finder</a></small></span><div class="sizes" id="sSizes"></div></div>
         <label class="check"><input type="checkbox" id="sPremium"> Premium dri-fit fabric with UV protection (+₹50)</label>
         <div class="total-bar">
           <div><small class="muted">Total</small><br><b id="sTotal">₹485</b></div>
           <div class="btns">
-            <a href="#team" class="btn btn-ghost" id="useForTeam">Use for team</a>
+            <a href="#team" class="btn btn-ghost">Use for team</a>
             <button class="btn btn-dark" id="sAdd">Add to cart</button>
           </div>
         </div>
@@ -490,12 +154,11 @@ footer a:hover{color:#c6ff1a}
   </div>
 </section>
 
-<!-- TEAM -->
 <section id="team">
   <div class="wrap">
     <div class="sec-head">
       <div><div class="eyebrow">Team &amp; bulk orders</div><h2 class="display">Kit out the whole squad</h2></div>
-      <p>Uses your Design Studio jersey. Add players one by one or paste a list. Prices drop automatically as your squad grows, and we flag duplicate numbers for you.</p>
+      <p>Uses your Design Studio jersey. Add players one by one or paste a list. Prices drop as your squad grows, and we flag duplicate numbers for you.</p>
     </div>
     <div class="team-grid">
       <div class="box">
@@ -510,7 +173,6 @@ footer a:hover{color:#c6ff1a}
         <div class="team-actions">
           <button class="btn btn-ghost btn-sm" id="addRow">+ Add player</button>
           <button class="btn btn-ghost btn-sm" id="csvBtn">⬇ Export CSV</button>
-          <button class="btn btn-ghost btn-sm" id="quoteBtn">📋 Copy quote message</button>
           <button class="btn btn-ghost btn-sm" id="clearRoster">Clear</button>
         </div>
         <div class="paste">
@@ -525,8 +187,7 @@ footer a:hover{color:#c6ff1a}
         <div class="tiers" id="tiers"></div>
         <div class="size-pills" id="sizePills"></div>
         <div class="line"><span>Players</span><span id="tPlayers">0</span></div>
-        <div class="line"><span>Price per jersey</span><span id="tUnit">₹499</span></div>
-        <div class="line"><span>Design mockup</span><span style="color:var(--ok);font-weight:700">FREE</span></div>
+        <div class="line"><span>Price per jersey</span><span id="tUnit">₹0</span></div>
         <div class="line"><span>Estimated delivery</span><span id="tEta">7–12 days</span></div>
         <div class="line total"><span>Total</span><span id="tTotal">₹0</span></div>
         <button class="btn btn-dark btn-block" id="teamAdd" style="margin-top:12px">Add squad to cart</button>
@@ -535,7 +196,6 @@ footer a:hover{color:#c6ff1a}
   </div>
 </section>
 
-<!-- SIZES -->
 <section id="sizes" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head"><div><div class="eyebrow">Size finder</div><h2 class="display">Find your perfect fit</h2></div><p>Enter your height and weight and we'll suggest a size. Measurements are in inches, laid flat.</p></div>
@@ -554,53 +214,30 @@ footer a:hover{color:#c6ff1a}
           <label><span class="lbl">Weight (kg)</span><input class="field" id="wIn" type="number" value="70" min="10" max="180"></label>
           <div><span class="lbl">Preferred fit</span><div class="seg" id="fitSeg"><button data-fit="slim">Slim</button><button data-fit="regular" class="active">Regular</button><button data-fit="loose">Loose</button></div></div>
         </div>
-        <div class="result"><small class="muted">We recommend</small><b id="recOut">L</b><button class="btn btn-ghost btn-sm" id="useSize">Use this size</button></div>
+        <div class="result"><small class="muted">We recommend</small><b id="recOut">L</b><button class="btn btn-ghost btn-sm" id="useSize">Use in Design Studio</button></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- REVIEWS -->
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head"><div><div class="eyebrow">Reviews</div><h2 class="display">What teams say</h2></div></div>
-    <div class="reviews">
-      <div class="review"><div class="stars">★★★★★</div><p>The quick-dry fabric held up through a full 20-over final in the afternoon sun. Names and numbers still look sharp after many washes.</p><div class="who"><span class="avatar" style="background:#ff4d2e">A</span><div><b>Sample reviewer</b><br><small class="muted">Weekend league captain</small></div></div></div>
-      <div class="review"><div class="stars">★★★★★</div><p>Pasted our 16-player list, fixed two duplicate numbers it flagged, and the whole kit arrived matching. Bulk pricing made it affordable.</p><div class="who"><span class="avatar" style="background:#1b3fa6">R</span><div><b>Sample reviewer</b><br><small class="muted">Corporate tournament</small></div></div></div>
-      <div class="review"><div class="stars">★★★★☆</div><p>Size finder was spot on for my son and me. Loved designing the colours ourselves in the studio. Delivery took a couple of extra days.</p><div class="who"><span class="avatar" style="background:#14a44d">S</span><div><b>Sample reviewer</b><br><small class="muted">Parent &amp; player</small></div></div></div>
-    </div>
-    <p class="demo-note">These are placeholder reviews for this concept site. Replace them with real customer reviews before going live.</p>
-  </div>
-</section>
-
-<!-- TRACK -->
-<section id="track" class="studio">
-  <div class="wrap track-box">
-    <div style="text-align:center;margin-bottom:24px"><div class="eyebrow">Order tracking</div><h2 class="display">Where's my kit?</h2><p class="muted">Try demo order <b>SS-1024</b>, or place an order and track it here.</p></div>
-    <form class="track-form" id="trackForm"><input class="field" id="trackIn" placeholder="Enter order ID, e.g. SS-1024" aria-label="Order ID"><button class="btn btn-dark">Track</button></form>
-    <div id="trackOut"></div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq">
+<section id="faq" style="padding-top:0">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:28px"><div class="eyebrow">FAQ</div><h2 class="display">Before you order</h2></div>
     <div class="faq">
-      <details><summary>Can each jersey have a different name and number?</summary><p>Yes. Add a name and number on any product, or use the Team Order builder to enter the whole squad at once. Each player becomes a separate item in your cart.</p></details>
+      <details><summary>Do I need to pay online?</summary><p>No. You book online and your order details are sent to us on WhatsApp. We then message you with the delivery date and payment options.</p></details>
+      <details><summary>Why do I need to log in?</summary><p>Your account keeps your address saved and lets you see all your bookings, their status and the delivery date in “My Orders”.</p></details>
+      <details><summary>Can each jersey have a different name and number?</summary><p>Yes. Add a name and number on any jersey, or use the Team Order builder to enter the whole squad at once.</p></details>
       <details><summary>Which sizes are available?</summary><p>Kids 2–3, 4–5, 6–7, 8–9, 10–11 and 12–13 years, and adult S to 6XL. Use the size finder above if you're unsure.</p></details>
-      <details><summary>How long will my order take?</summary><p>Printing takes 3–4 business days, then delivery takes 5–8 business days. Team orders of more than 11 pieces take about 20 days in total.</p></details>
-      <details><summary>Can I return a customised jersey?</summary><p>Personalised items can't be returned, so please double-check names, numbers and sizes. Plain items can be returned within 7 days, unworn with tags.</p></details>
-      <details><summary>Do you make kits for other sports?</summary><p>Yes. For team orders we also make football, kabaddi, volleyball and badminton kits, plus T-shirts for corporate events.</p></details>
-      <details><summary>Is there a discount on my first order?</summary><p>Use code FIRST10 for 10% off orders of ₹500 or more. Ordering 11+ jerseys? Use TEAM15 for an extra 15% off.</p></details>
+      <details><summary>How long will my order take?</summary><p>Usually 7–12 days. Team orders of more than 11 pieces take about 20 days. We confirm the exact date on WhatsApp.</p></details>
+      <details><summary>Can I return a customised jersey?</summary><p>Personalised items can't be returned, so please double-check names, numbers and sizes before booking.</p></details>
     </div>
   </div>
 </section>
 
 <div class="wrap">
-  <div class="cta">
-    <div><h2 class="display">Ready for match day?</h2><p style="margin-top:8px;font-weight:500">Get new designs, offers and match-season deals first.</p></div>
-    <form class="news" id="newsForm"><input type="email" required placeholder="you@email.com" aria-label="Email"><button class="btn">Sign up</button></form>
+  <div class="cta-wa">
+    <div><h2 class="display">Questions? Chat with us</h2><p style="margin-top:6px;color:#c5cee3">Send us your design idea or team list on WhatsApp.</p></div>
+    <a class="btn btn-wa" id="ctaWa" href="#" target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
   </div>
 </div>
 </main>
@@ -609,385 +246,40 @@ footer a:hover{color:#c6ff1a}
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a href="#top" class="logo" style="color:#fff"><span class="logo-mark">S</span>SIXER STUDIO</a>
+        <a href="#top" class="logo" style="color:#fff"><span class="logo-mark">S</span><span class="js-store">SIXER STUDIO</span></a>
         <p style="margin-top:12px;max-width:300px">Custom cricket jerseys with your team name and number, made to order and delivered across India.</p>
-        <p style="margin-top:12px">hello@sixerstudio.example<br>Support: 11 AM – 8 PM</p>
       </div>
-      <div><h4>Shop</h4><ul><li><a href="#shop">All jerseys</a></li><li><a href="#studio">Design Studio</a></li><li><a href="#team">Team orders</a></li><li><a href="#shop" data-jump="combo">Combos</a></li></ul></div>
-      <div><h4>Help</h4><ul><li><a href="#sizes">Size finder</a></li><li><a href="#track">Track order</a></li><li><a href="#faq">FAQ</a></li><li><a href="#" id="footChat">Chat with us</a></li></ul></div>
-      <div><h4>Policies</h4><ul><li>Shipping policy</li><li>Returns &amp; refunds</li><li>Privacy policy</li><li>Terms &amp; conditions</li></ul></div>
+      <div><h4>Shop</h4><ul><li><a href="#shop">All jerseys</a></li><li><a href="#studio">Design Studio</a></li><li><a href="#team">Team orders</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="#sizes">Size finder</a></li><li><a href="#" data-open="orders">My orders</a></li><li><a href="#faq">FAQ</a></li><li><a href="#" id="footChat">Chat with us</a></li></ul></div>
+      <div><h4>Account</h4><ul><li><a href="#" data-open="account">Login / Sign up</a></li><li><a href="admin.html">Admin</a></li></ul></div>
     </div>
-    <div class="foot-bottom"><span>© 2026 Sixer Studio · Concept demo — no real orders are placed or charged.</span><span>Made with 🏏 in India</span></div>
+    <div class="foot-bottom"><span>© <span id="yr"></span> <span class="js-store">Sixer Studio</span></span><span>Made with 🏏 in India</span></div>
   </div>
 </footer>
 
-<!-- floating chat -->
-<button class="fab" id="fab" aria-label="Chat with us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.8 7L3 21l2-6A8 8 0 1 1 21 12z"/></svg></button>
+<button class="fab" id="fab" aria-label="Help"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.8 7L3 21l2-6A8 8 0 1 1 21 12z"/></svg></button>
 <div class="chat" id="chat">
-  <div class="chat-head"><div>Sixer Support<small>Typically replies instantly</small></div><button id="chatClose" aria-label="Close">✕</button></div>
+  <div class="chat-head"><div>Quick help<small>Common questions</small></div><button id="chatClose" aria-label="Close">✕</button></div>
   <div class="chat-log" id="chatLog"></div>
   <div class="quick" id="quick"></div>
 </div>
 
 <div class="overlay" id="overlay"></div>
-
 <aside class="drawer" id="drawer" aria-label="Cart">
   <div class="drawer-head"><h3>Your cart</h3><button class="icon-btn" data-close aria-label="Close">✕</button></div>
   <div class="drawer-body" id="cartBody"></div>
   <div class="drawer-foot" id="cartFoot"></div>
 </aside>
-
-<div class="modal" id="qvModal" role="dialog" aria-modal="true"><button class="icon-btn modal-close" data-close aria-label="Close">✕</button><div id="qvContent"></div></div>
+<div class="modal" id="pModal" role="dialog" aria-modal="true"><button class="icon-btn modal-close" data-close aria-label="Close">✕</button><div id="pContent"></div></div>
+<div class="modal sm" id="authModal" role="dialog" aria-modal="true"><button class="icon-btn modal-close" data-close aria-label="Close">✕</button><div id="authContent"></div></div>
 <div class="modal sm" id="coModal" role="dialog" aria-modal="true"><button class="icon-btn modal-close" data-close aria-label="Close">✕</button><div id="coContent"></div></div>
-
+<div class="modal" id="ordersModal" role="dialog" aria-modal="true"><button class="icon-btn modal-close" data-close aria-label="Close">✕</button><div id="ordersContent" class="modal-pad"></div></div>
 <div class="toast" id="toast"></div>
 
-<script>
-(function(){
-'use strict';
-const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-const inr=n=>'₹'+Math.round(n).toLocaleString('en-IN');
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let uid=0;
-
-/* ---------- jersey renderer ---------- */
-const BODY='M96 22 L58 34 L8 80 L42 128 L72 108 L72 304 Q150 314 228 304 L228 108 L258 128 L292 80 L242 34 L204 22 Q150 60 96 22 Z';
-const SPL=[[60,140,26],[210,90,18],[120,240,34],[250,220,22],[90,62,12],[180,180,14],[40,250,16],[230,292,20],[150,120,9],[270,150,10],[110,180,7],[200,250,8]];
-function jerseySVG(o){
-  const c1=o.c[0],c2=o.c[1],c3=o.c[2];const id='j'+(++uid);const side=o.side||'front';
-  let pat='';
-  switch(o.pattern){
-    case 'sash':pat=`<path d="M30 320 L250 30 L310 30 L310 70 L95 330Z" fill="${c2}"/><path d="M100 330 L310 80 L310 96 L116 330Z" fill="${c3}"/>`;break;
-    case 'stripes':pat=Array.from({length:10},(_,i)=>`<rect x="${i*36-20}" y="0" width="14" height="340" fill="${c2}" transform="skewX(-12)"/>`).join('');break;
-    case 'chevron':pat=`<path d="M0 150 L150 230 L300 150 L300 190 L150 270 L0 190Z" fill="${c2}"/><path d="M0 205 L150 285 L300 205 L300 222 L150 302 L0 222Z" fill="${c3}"/>`;break;
-    case 'hoops':pat=[140,196,252].map(y=>`<rect x="0" y="${y}" width="300" height="24" fill="${c2}"/>`).join('')+`<rect x="0" y="170" width="300" height="6" fill="${c3}"/><rect x="0" y="226" width="300" height="6" fill="${c3}"/>`;break;
-    case 'wave':pat=`<path d="M0 170 C60 130 100 210 150 170 S240 130 300 170 L300 340 L0 340Z" fill="${c2}"/><path d="M0 215 C60 175 100 255 150 215 S240 175 300 215 L300 230 C240 190 200 270 150 230 S60 190 0 230Z" fill="${c3}"/>`;break;
-    case 'split':pat=`<rect x="150" y="0" width="150" height="340" fill="${c2}"/><rect x="146" y="0" width="8" height="340" fill="${c3}"/>`;break;
-    case 'splash':pat=SPL.map((s,i)=>`<circle cx="${s[0]}" cy="${s[1]}" r="${s[2]}" fill="${i%2?c3:c2}" opacity="${i%3?0.9:0.7}"/>`).join('');break;
-    case 'fade':pat=`<defs><linearGradient id="${id}g" x1="0" y1="0" x2="0" y2="1"><stop offset=".25" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient></defs><rect width="300" height="340" fill="url(#${id}g)"/>`+[200,222,244].map((y,i)=>`<path d="M0 ${y} L300 ${y-60}" stroke="${c3}" stroke-width="${4-i}" opacity=".7"/>`).join('');break;
-  }
-  const cuffs=`<path d="M8 80 L42 128 L50 122 L17 73Z" fill="${c2}"/><path d="M292 80 L258 128 L250 122 L283 73Z" fill="${c2}"/>`;
-  let collar;
-  if(o.collar==='polo'&&side==='front'){
-    collar=`<path d="M140 40 L160 40 L158 92 L142 92Z" fill="${c2}" stroke="rgba(0,0,0,.2)"/><circle cx="150" cy="60" r="2.6" fill="${c3}"/><circle cx="150" cy="76" r="2.6" fill="${c3}"/><path d="M96 22 L124 54 L148 42 Q118 38 106 16Z" fill="${c3}" stroke="rgba(0,0,0,.25)"/><path d="M204 22 L176 54 L152 42 Q182 38 194 16Z" fill="${c3}" stroke="rgba(0,0,0,.25)"/>`;
-  }else if(o.collar==='polo'){
-    collar=`<path d="M96 22 Q150 44 204 22 L198 12 Q150 30 102 12Z" fill="${c3}" stroke="rgba(0,0,0,.25)"/>`;
-  }else{
-    collar=side==='front'?`<path d="M96 22 Q150 60 204 22 L196 18 Q150 50 104 18Z" fill="${c3}"/>`:`<path d="M96 22 Q150 36 204 22 L198 18 Q150 30 102 18Z" fill="${c3}"/>`;
-  }
-  const font=`font-family="Bebas Neue,Impact,Arial Narrow,sans-serif" text-anchor="middle" fill="${c3}" stroke="rgba(0,0,0,.35)" stroke-width="2.5" paint-order="stroke"`;
-  let txt='';
-  const name=String(o.name||'').toUpperCase().slice(0,12), team=String(o.team||'').toUpperCase().slice(0,14);
-  const num=(o.number===''||o.number==null)?'':String(o.number).slice(0,2);
-  if(side==='front'){
-    if(team){const fs=Math.min(34,240/(team.length*0.5+1));txt+=`<text x="150" y="160" font-size="${fs.toFixed(1)}" ${font}>${esc(team)}</text>`;}
-    if(num) txt+=`<text x="196" y="122" font-size="26" ${font}>${esc(num)}</text>`;
-    txt+=`<text x="104" y="120" font-size="15" ${font} stroke-width="1.5">SXR</text>`;
-  }else{
-    if(name){const fs=Math.min(40,200/(name.length*0.48+0.6));txt+=`<text x="150" y="104" font-size="${fs.toFixed(1)}" ${font}>${esc(name)}</text>`;}
-    if(num) txt+=`<text x="150" y="232" font-size="120" ${font} stroke-width="4">${esc(num)}</text>`;
-  }
-  return `<svg viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jersey ${side} view"><defs><clipPath id="${id}c"><path d="${BODY}"/></clipPath><linearGradient id="${id}s" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".5" stop-color="#fff" stop-opacity=".07"/><stop offset="1" stop-color="#000" stop-opacity=".22"/></linearGradient></defs><g clip-path="url(#${id}c)"><rect width="300" height="340" fill="${c1}"/>${pat}${cuffs}<rect width="300" height="340" fill="url(#${id}s)"/></g>${collar}${txt}<path d="${BODY}" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="2"/></svg>`;
-}
-
-/* ---------- data ---------- */
-const PRODUCTS=[
-  {id:1,name:'Thunder Sash Polo',cat:'polo',pattern:'sash',c:['#0a1f44','#c6ff1a','#ffffff'],price:485,mrp:1299,tag:'Bestseller'},
-  {id:2,name:'Inferno Fade Polo',cat:'polo',pattern:'fade',c:['#ff4d2e','#ffb800','#ffffff'],price:485,mrp:1299,tag:'New'},
-  {id:3,name:'Royal Hoops Round Neck',cat:'round',pattern:'hoops',c:['#1b3fa6','#ffd23f','#ffffff'],price:449,mrp:999},
-  {id:4,name:'Ocean Wave Polo',cat:'polo',pattern:'wave',c:['#006d77','#83c5be','#edf6f9'],price:485,mrp:1299,tag:'New'},
-  {id:5,name:'Blackout Chevron Polo',cat:'polo',pattern:'chevron',c:['#111111','#e63946','#f1faee'],price:499,mrp:1299,tag:'Trending'},
-  {id:6,name:'Pitch Stripes Round Neck',cat:'round',pattern:'stripes',c:['#2d6a4f','#95d5b2','#ffffff'],price:449,mrp:999},
-  {id:7,name:'Twin Split Polo',cat:'polo',pattern:'split',c:['#5a189a','#ff9e00','#ffffff'],price:499,mrp:1299},
-  {id:8,name:'Holi Splash Jersey',cat:'round',pattern:'splash',c:['#ffffff','#ff006e','#3a86ff'],price:469,mrp:1199,tag:'Limited'},
-  {id:9,name:'Mini Champs Kids Jersey',cat:'kids',pattern:'sash',c:['#ffbe0b','#fb5607','#ffffff'],price:349,mrp:799},
-  {id:10,name:'Junior Blaze Kids Jersey',cat:'kids',pattern:'chevron',c:['#3a0ca3','#4cc9f0','#ffffff'],price:349,mrp:799,tag:'New'},
-  {id:11,name:'Jersey + Track Combo — Navy',cat:'combo',pattern:'wave',c:['#0a1f44','#3a86ff','#ffffff'],price:999,mrp:1899,tag:'Combo'},
-  {id:12,name:'Jersey + Track Combo — Maroon',cat:'combo',pattern:'stripes',c:['#7b1e3a','#f4a261','#ffffff'],price:999,mrp:1899,tag:'Combo'}
-];
-PRODUCTS.forEach(p=>{p.collar=p.cat==='round'?'round':'polo';p.rating=+(4.3+((p.id*7)%7)/10).toFixed(1);p.reviews=38+p.id*23;});
-const PATTERNS=['sash','stripes','chevron','hoops','wave','split','splash','fade'];
-const PALETTES=[['#0a1f44','#c6ff1a','#ffffff'],['#ff4d2e','#ffb800','#ffffff'],['#111111','#e63946','#f1faee'],['#006d77','#83c5be','#edf6f9'],['#5a189a','#ff9e00','#ffffff'],['#1b3fa6','#ffd23f','#ffffff'],['#2d6a4f','#95d5b2','#ffffff'],['#7b1e3a','#f4a261','#ffffff']];
-const KIDS=['2-3Y','4-5Y','6-7Y','8-9Y','10-11Y','12-13Y'];
-const ADULT=['S','M','L','XL','2XL','3XL','4XL','5XL','6XL'];
-const ALL_SIZES=KIDS.concat(ADULT);
-const disc=p=>Math.round((1-p.price/p.mrp)*100);
-
-let wish=store.get('ss_wish',[]);
-let cart=store.get('ss_cart',[]);
-let orders=store.get('ss_orders',{});
-if(!orders['SS-1024']) orders['SS-1024']={placed:Date.now()-3*86400000,fixed:3,items:5,total:2425};
-let coupon=null;
-let filter='all',sortBy='featured',query='';
-
-/* ---------- toast ---------- */
-let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2400);}
-
-/* ---------- theme ---------- */
-const root=document.documentElement;
-function applyTheme(t){if(t)root.setAttribute('data-theme',t);else root.removeAttribute('data-theme');}
-applyTheme(store.get('ss_theme',null));
-$('#themeBtn').onclick=()=>{const cur=root.getAttribute('data-theme');const dark=cur?cur==='dark':matchMedia('(prefers-color-scheme: dark)').matches;const t=dark?'light':'dark';applyTheme(t);store.set('ss_theme',t);};
-$('#menuBtn').onclick=()=>$('#navLinks').classList.toggle('open');
-$$('#navLinks a').forEach(a=>a.addEventListener('click',()=>$('#navLinks').classList.remove('open')));
-
-/* ---------- ticker (simulated) ---------- */
-const TEAMS=[['Thane Titans','Pune Panthers'],['Hyderabad Hawks','Nagpur Knights'],['Vizag Vipers','Surat Strikers'],['Kochi Comets','Indore Invincibles']];
-const matches=TEAMS.map((t,i)=>({a:t[0],b:t[1],r:40+i*31,w:i%4,balls:30+i*17,target:i%2?168+i*4:null}));
-function mText(m){const ov=Math.floor(m.balls/6)+'.'+(m.balls%6);let s=`${m.a} <b>${m.r}/${m.w}</b> (${ov} ov) vs ${m.b}`;if(m.target){const need=m.target-m.r,left=120-m.balls;s+=need>0&&left>0&&m.w<10?` · need ${need} off ${left}`:(need<=0?` · ${m.a} won!`:` · ${m.b} won!`);}return s;}
-function renderTicker(){const html=matches.map((m,i)=>`<span data-m="${i}">🏏 ${mText(m)}</span>`).join('');$('#ticker').innerHTML=html+html+'<span>Local league scores are simulated for this demo</span>';}
-renderTicker();
-setInterval(()=>{matches.forEach(m=>{if(m.balls>=120||m.w>=10||(m.target&&m.r>=m.target)){Object.assign(m,{r:0,w:0,balls:0});return;}const o=[0,1,1,1,2,4,6,'W'][Math.floor(Math.random()*8)];m.balls++;if(o==='W')m.w++;else m.r+=o;});
-  matches.forEach((m,i)=>$$(`[data-m="${i}"]`).forEach(el=>el.innerHTML='🏏 '+mText(m)));},3000);
-
-/* ---------- sale timer ---------- */
-function tickSale(){const n=new Date(),e=new Date(n);e.setHours(23,59,59,999);let s=Math.max(0,Math.floor((e-n)/1000));const h=String(Math.floor(s/3600)).padStart(2,'0'),m=String(Math.floor(s%3600/60)).padStart(2,'0'),ss=String(s%60).padStart(2,'0');$('#saleTimer').textContent=`${h}:${m}:${ss}`;}
-tickSale();setInterval(tickSale,1000);
-
-/* ---------- hero rotation ---------- */
-let heroI=0;const heroNames=['ARJUN','MEERA','KABIR','ZOYA'];
-function hero(){const p=PRODUCTS[[0,4,1,6,3][heroI%5]];const el=$('#heroJersey');el.style.opacity=0;setTimeout(()=>{el.innerHTML=jerseySVG({...p,side:heroI%2?'back':'front',team:'SIXERS XI',name:heroNames[heroI%4],number:String(7+heroI*9%90)});el.style.opacity=1;},250);heroI++;}
-hero();setInterval(hero,3200);
-
-/* ---------- shop ---------- */
-const heartSVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>';
-function stars(r){const f=Math.round(r);return '★'.repeat(f)+'☆'.repeat(5-f);}
-function cardHTML(p){
-  return `<article class="card"><div class="card-media" data-act="qv" data-id="${p.id}">
-    ${p.tag?`<span class="tag">${p.tag}</span>`:''}<span class="off">-${disc(p)}%</span><span class="flip-hint">hover ↻</span>
-    <button class="heart ${wish.includes(p.id)?'on':''}" data-act="wish" data-id="${p.id}" aria-label="Add to wishlist">${heartSVG}</button>
-    <div class="face front">${jerseySVG({...p,side:'front',team:'YOUR TEAM'})}</div>
-    <div class="face back">${jerseySVG({...p,side:'back',name:'YOUR NAME',number:'10'})}</div></div>
-    <div class="card-body"><h3>${esc(p.name)}</h3><div class="stars">${stars(p.rating)} <span>${p.rating} (${p.reviews})</span></div>
-    <div class="price"><b>${inr(p.price)}</b><s>${inr(p.mrp)}</s></div>
-    <div class="card-actions"><button class="btn btn-ghost btn-sm" data-act="qv" data-id="${p.id}">Quick view</button><button class="btn btn-dark btn-sm" data-act="custom" data-id="${p.id}">Customize</button></div></div></article>`;
-}
-function renderProducts(){
-  let list=PRODUCTS.filter(p=>filter==='all'||(filter==='wish'?wish.includes(p.id):p.cat===filter));
-  if(query)list=list.filter(p=>(p.name+' '+p.cat+' '+(p.tag||'')+' '+p.pattern+' '+(p.cat==='round'?'round neck':'polo collar')).toLowerCase().includes(query));
-  const s={low:(a,b)=>a.price-b.price,high:(a,b)=>b.price-a.price,disc:(a,b)=>disc(b)-disc(a),rating:(a,b)=>b.rating-a.rating}[sortBy];
-  if(s)list=[...list].sort(s);
-  $('#grid').innerHTML=list.length?list.map(cardHTML).join(''):`<div class="empty">${filter==='wish'&&!query?'Your wishlist is empty. Tap ♥ on any jersey to save it.':`No jerseys match “${esc(query)}”.`} Or <a href="#studio" style="text-decoration:underline">design your own</a>.</div>`;
-}
-function updateBadges(){const w=wish.length,c=cart.reduce((a,i)=>a+i.qty,0);$('#wishCount').textContent=w;$('#wishCount').dataset.n=w;$('#cartCount').textContent=c;$('#cartCount').dataset.n=c;}
-function setFilter(f){filter=f;$$('#chips .chip').forEach(c=>c.classList.toggle('active',c.dataset.f===f));renderProducts();}
-$('#chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(b)setFilter(b.dataset.f);});
-$('#sortSel').onchange=e=>{sortBy=e.target.value;renderProducts();};
-function setQuery(v,from){query=v.trim().toLowerCase();if(from!=='shop')$('#shopSearch').value=v;if(from!=='head')$('#headerSearch').value=v;renderProducts();}
-$('#shopSearch').addEventListener('input',e=>setQuery(e.target.value,'shop'));
-$('#headerSearch').addEventListener('input',e=>setQuery(e.target.value,'head'));
-$('#headerSearch').addEventListener('keydown',e=>{if(e.key==='Enter')$('#shop').scrollIntoView();});
-$('#wishBtn').onclick=()=>{setFilter('wish');$('#shop').scrollIntoView();};
-$$('[data-jump]').forEach(a=>a.addEventListener('click',()=>setFilter(a.dataset.jump)));
-function toggleWish(id){const i=wish.indexOf(id);if(i>-1){wish.splice(i,1);toast('Removed from wishlist');}else{wish.push(id);toast('Saved to wishlist ♥');}store.set('ss_wish',wish);updateBadges();renderProducts();}
-$('#grid').addEventListener('click',e=>{const el=e.target.closest('[data-act]');if(!el)return;e.stopPropagation();const id=+el.dataset.id;
-  if(el.dataset.act==='wish')toggleWish(id);else if(el.dataset.act==='qv')openQV(id);else if(el.dataset.act==='custom')loadToStudio(PRODUCTS.find(p=>p.id===id));});
-
-/* ---------- overlay / modals ---------- */
-function openLayer(el){$('#overlay').classList.add('show');el.classList.add('open');document.body.style.overflow='hidden';}
-function closeAll(){$('#overlay').classList.remove('show');$$('.drawer.open,.modal.open').forEach(x=>x.classList.remove('open'));document.body.style.overflow='';}
-$('#overlay').onclick=closeAll;
-document.addEventListener('click',e=>{if(e.target.closest('[data-close]'))closeAll();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll();});
-
-/* ---------- quick view ---------- */
-let qv=null;
-function openQV(id){
-  const p=PRODUCTS.find(x=>x.id===id);const sizes=p.cat==='kids'?KIDS:ADULT;
-  qv={p,side:'front',size:sizes[2],qty:1,name:'',number:''};
-  $('#qvContent').innerHTML=`<div class="qv"><div class="qv-stage"><div id="qvSvg"></div><div class="stage-tools"><div class="seg" id="qvSide"><button data-side="front" class="active">Front</button><button data-side="back">Back</button></div></div></div>
-  <div class="qv-info"><div>${p.tag?`<span class="eyebrow">${p.tag}</span>`:''}<h2 style="font-size:1.5rem">${esc(p.name)}</h2><div class="stars">${stars(p.rating)} <span>${p.rating} · ${p.reviews} ratings</span></div></div>
-  <div class="price"><b style="font-size:1.6rem">${inr(p.price)}</b><s>${inr(p.mrp)}</s><span style="color:var(--hot);font-weight:800">${disc(p)}% off</span></div>
-  <p class="muted" style="font-size:.92rem">Quick-dry polyester, sublimation printed so colours never crack or fade. ${p.cat==='combo'?'Includes matching track pants.':''}</p>
-  <div class="row2"><label><span class="lbl">Name on back</span><input class="field" id="qvName" maxlength="12" placeholder="Optional"></label><label><span class="lbl">Number</span><input class="field" id="qvNum" type="number" min="0" max="99" placeholder="Optional"></label></div>
-  <div><span class="lbl">Size</span><div class="sizes" id="qvSizes">${sizes.map(s=>`<button class="size ${s===qv.size?'active':''}" data-s="${s}">${s}</button>`).join('')}</div></div>
-  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><div class="qty" id="qvQty"><button data-q="-1">−</button><span>1</span><button data-q="1">+</button></div>
-  <button class="btn btn-dark" id="qvAdd" style="flex:1">Add to cart</button></div>
-  <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-ghost btn-sm" id="qvStudio">🎨 Change colours in Studio</button><button class="btn btn-ghost btn-sm" id="qvWish">${wish.includes(p.id)?'♥ Saved':'♡ Wishlist'}</button></div></div></div>`;
-  const draw=()=>{$('#qvSvg').innerHTML=jerseySVG({...p,side:qv.side,name:qv.name,number:qv.number,team:'YOUR TEAM'});};
-  draw();
-  $('#qvSide').onclick=e=>{const b=e.target.closest('button');if(!b)return;qv.side=b.dataset.side;$$('#qvSide button').forEach(x=>x.classList.toggle('active',x===b));draw();};
-  $('#qvName').oninput=e=>{qv.name=e.target.value;qv.side='back';$$('#qvSide button').forEach(x=>x.classList.toggle('active',x.dataset.side==='back'));draw();};
-  $('#qvNum').oninput=e=>{qv.number=e.target.value.slice(0,2);draw();};
-  $('#qvSizes').onclick=e=>{const b=e.target.closest('.size');if(!b)return;qv.size=b.dataset.s;$$('#qvSizes .size').forEach(x=>x.classList.toggle('active',x===b));};
-  $('#qvQty').onclick=e=>{const b=e.target.closest('button');if(!b)return;qv.qty=Math.max(1,Math.min(50,qv.qty+ +b.dataset.q));$('#qvQty span').textContent=qv.qty;};
-  $('#qvAdd').onclick=()=>{closeAll();addToCart({pid:p.id,title:p.name,size:qv.size,qty:qv.qty,price:p.price,design:{pattern:p.pattern,c:p.c,collar:p.collar},name:qv.name.toUpperCase(),number:qv.number});};
-  $('#qvStudio').onclick=()=>{closeAll();loadToStudio(p);};
-  $('#qvWish').onclick=e=>{toggleWish(p.id);e.target.textContent=wish.includes(p.id)?'♥ Saved':'♡ Wishlist';};
-  openLayer($('#qvModal'));
-}
-
-/* ---------- studio ---------- */
-const S={pattern:'sash',c:['#0a1f44','#c6ff1a','#ffffff'],collar:'polo',team:'SIXERS XI',name:'ARJUN',number:'23',side:'back',size:'L',qty:1,premium:false};
-try{const m=location.hash.match(/design=([^&]+)/);if(m){const d=JSON.parse(decodeURIComponent(atob(m[1])));['pattern','c','collar','team','name','number'].forEach(k=>{if(d[k]!=null)S[k]=d[k];});}}catch(e){}
-$('#patGrid').innerHTML=PATTERNS.map(p=>`<button class="pat" data-p="${p}"><div class="pthumb"></div>${p}</button>`).join('');
-$('#palettes').innerHTML=PALETTES.map((p,i)=>`<button class="pal" data-i="${i}" aria-label="Palette ${i+1}">${p.map(c=>`<i style="background:${c}"></i>`).join('')}</button>`).join('');
-$('#sSizes').innerHTML=ALL_SIZES.map(s=>`<button class="size" data-s="${s}">${s}</button>`).join('');
-function studioPrice(){return (485+(S.premium?50:0))*S.qty;}
-function renderStudio(full){
-  $('#stage').innerHTML=jerseySVG(S);
-  $$('#sideSeg button').forEach(b=>b.classList.toggle('active',b.dataset.side===S.side));
-  $$('#collarSeg button').forEach(b=>b.classList.toggle('active',b.dataset.collar===S.collar));
-  $$('#sSizes .size').forEach(b=>b.classList.toggle('active',b.dataset.s===S.size));
-  $('#sQty').textContent=S.qty;$('#sTotal').textContent=inr(studioPrice());
-  if(full!==false){
-    $$('#patGrid .pat').forEach(b=>{b.classList.toggle('active',b.dataset.p===S.pattern);b.querySelector('.pthumb').innerHTML=jerseySVG({...S,pattern:b.dataset.p,side:'front',team:'',number:''});});
-    $('#c1').value=S.c[0];$('#c2').value=S.c[1];$('#c3').value=S.c[2];
-    $('#sTeam').value=S.team;$('#sName').value=S.name;$('#sNum').value=S.number;$('#sPremium').checked=S.premium;
-  }
-  renderTeamSide();
-}
-$('#patGrid').onclick=e=>{const b=e.target.closest('.pat');if(!b)return;S.pattern=b.dataset.p;renderStudio();};
-$('#palettes').onclick=e=>{const b=e.target.closest('.pal');if(!b)return;S.c=[...PALETTES[+b.dataset.i]];renderStudio();};
-['c1','c2','c3'].forEach((k,i)=>$('#'+k).addEventListener('input',e=>{S.c[i]=e.target.value;S.c=[...S.c];renderStudio(false);}));
-['c1','c2','c3'].forEach(k=>$('#'+k).addEventListener('change',()=>renderStudio()));
-$('#sideSeg').onclick=e=>{const b=e.target.closest('button');if(b){S.side=b.dataset.side;renderStudio(false);}};
-$('#collarSeg').onclick=e=>{const b=e.target.closest('button');if(b){S.collar=b.dataset.collar;renderStudio();}};
-$('#sTeam').oninput=e=>{S.team=e.target.value;S.side='front';renderStudio(false);};
-$('#sName').oninput=e=>{S.name=e.target.value;S.side='back';renderStudio(false);};
-$('#sNum').oninput=e=>{S.number=e.target.value.slice(0,2);renderStudio(false);};
-$('#sSizes').onclick=e=>{const b=e.target.closest('.size');if(b){S.size=b.dataset.s;renderStudio(false);}};
-$('.panel .qty').onclick=e=>{const b=e.target.closest('button');if(b){S.qty=Math.max(1,Math.min(50,S.qty+ +b.dataset.q));renderStudio(false);}};
-$('#sPremium').onchange=e=>{S.premium=e.target.checked;renderStudio(false);};
-$('#randBtn').onclick=()=>{S.pattern=PATTERNS[Math.floor(Math.random()*PATTERNS.length)];const h=Math.floor(Math.random()*360);const hsl=(h,s,l)=>{s/=100;l/=100;const k=n=>(n+h/30)%12,a=s*Math.min(l,1-l),f=n=>l-a*Math.max(-1,Math.min(k(n)-3,9-k(n),1));return '#'+[f(0),f(8),f(4)].map(x=>Math.round(x*255).toString(16).padStart(2,'0')).join('');};
-  S.c=[hsl(h,70,22+Math.random()*20),hsl((h+150+Math.random()*60)%360,85,55),Math.random()>.3?'#ffffff':'#111111'];S.collar=Math.random()>.5?'polo':'round';renderStudio();toast('🎲 Fresh design generated');};
-function loadToStudio(p){S.pattern=p.pattern;S.c=[...p.c];S.collar=p.collar;S.side='front';renderStudio();$('#studio').scrollIntoView();toast(`Loaded “${p.name}” into the Studio`);}
-function download(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500);}
-$('#pngBtn').onclick=()=>{const svg=jerseySVG(S);const big=svg.replace('<svg ','<svg width="900" height="960" ');const img=new Image();
-  img.onload=()=>{try{const c=document.createElement('canvas');c.width=900;c.height=960;c.getContext('2d').drawImage(img,0,0,900,960);c.toBlob(b=>{if(b){download(b,'my-sixer-jersey.png');toast('Design downloaded');}else download(new Blob([svg],{type:'image/svg+xml'}),'my-sixer-jersey.svg');});}catch(e){download(new Blob([svg],{type:'image/svg+xml'}),'my-sixer-jersey.svg');}};
-  img.onerror=()=>download(new Blob([svg],{type:'image/svg+xml'}),'my-sixer-jersey.svg');
-  img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(big);};
-function copy(text,msg){const done=()=>toast(msg);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,()=>fallback());}else fallback();
-  function fallback(){const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();try{document.execCommand('copy');done();}catch(e){prompt('Copy this:',text);}t.remove();}}
-$('#shareBtn').onclick=()=>{const d=btoa(encodeURIComponent(JSON.stringify({pattern:S.pattern,c:S.c,collar:S.collar,team:S.team,name:S.name,number:S.number})));const url=location.href.split('#')[0]+'#design='+d;copy(url,'🔗 Share link copied — anyone who opens it sees your design');};
-$('#sAdd').onclick=()=>addToCart({pid:0,title:'Custom Studio Jersey'+(S.premium?' (Premium)':''),size:S.size,qty:S.qty,price:485+(S.premium?50:0),design:{pattern:S.pattern,c:[...S.c],collar:S.collar},name:S.name.toUpperCase(),number:S.number,team:S.team.toUpperCase()});
-
-/* ---------- team builder ---------- */
-let roster=store.get('ss_roster',[{name:'Arjun',number:'23',size:'L'},{name:'Meera',number:'7',size:'M'},{name:'Kabir',number:'45',size:'XL'}]);
-const tierPrice=n=>n<=10?499:n<=20?449:399;
-function renderRoster(){
-  $('#rosterBody').innerHTML=roster.map((r,i)=>`<tr data-i="${i}"><td class="muted">${i+1}</td><td><input data-k="name" value="${esc(r.name)}" maxlength="12" placeholder="Player name"></td><td><input class="num" data-k="number" type="number" min="0" max="99" value="${esc(r.number)}"></td><td><select data-k="size">${ALL_SIZES.map(s=>`<option ${s===r.size?'selected':''}>${s}</option>`).join('')}</select></td><td><button class="del" data-del="${i}" aria-label="Remove">×</button></td></tr>`).join('');
-  teamSummary();
-}
-function teamSummary(){
-  store.set('ss_roster',roster);
-  const n=roster.length,unit=tierPrice(n);
-  const counts={};roster.forEach(r=>{if(r.number!=='')counts[r.number]=(counts[r.number]||0)+1;});
-  const dups=Object.keys(counts).filter(k=>counts[k]>1);
-  $$('#rosterBody tr').forEach(tr=>{const r=roster[+tr.dataset.i];tr.classList.toggle('dup',!!r&&dups.includes(String(r.number)));});
-  $('#dupWarn').textContent=dups.length?`⚠ Duplicate number${dups.length>1?'s':''}: ${dups.join(', ')}`:'';
-  $('#tiers').innerHTML=[[1,10,499],[11,20,449],[21,'+',399]].map(t=>`<div class="tier ${unit===t[2]&&n>0?'active':''}"><span>${t[0]}${t[1]==='+'?'+':'–'+t[1]} jerseys</span><span>${inr(t[2])} each</span></div>`).join('');
-  const sc={};roster.forEach(r=>sc[r.size]=(sc[r.size]||0)+1);
-  $('#sizePills').innerHTML=ALL_SIZES.filter(s=>sc[s]).map(s=>`<span>${s} × ${sc[s]}</span>`).join('');
-  $('#tPlayers').textContent=n;$('#tUnit').textContent=inr(unit);$('#tTotal').textContent=inr(unit*n);
-  $('#tEta').textContent=n>11?'about 20 days':'7–12 days';
-  const next=n<11?11-n:n<21?21-n:0;
-  $('#teamAdd').textContent=n?`Add ${n} jerseys to cart`+(next?` · ${next} more for a lower price`:''):'Add players first';
-}
-function renderTeamSide(){if(!$('#teamJersey'))return;$('#teamJersey').innerHTML=jerseySVG({...S,side:'front'});$('#teamTitle').textContent=(S.team||'Team')+' summary';}
-$('#rosterBody').addEventListener('input',e=>{const tr=e.target.closest('tr');if(!tr||!e.target.dataset.k)return;let v=e.target.value;if(e.target.dataset.k==='number')v=v.slice(0,2);roster[+tr.dataset.i][e.target.dataset.k]=v;teamSummary();});
-$('#rosterBody').addEventListener('change',e=>{const tr=e.target.closest('tr');if(tr&&e.target.dataset.k){roster[+tr.dataset.i][e.target.dataset.k]=e.target.value;teamSummary();}});
-$('#rosterBody').addEventListener('click',e=>{const b=e.target.closest('[data-del]');if(b){roster.splice(+b.dataset.del,1);renderRoster();}});
-$('#addRow').onclick=()=>{roster.push({name:'',number:'',size:'L'});renderRoster();const ins=$$('#rosterBody input[data-k="name"]');ins[ins.length-1].focus();};
-$('#clearRoster').onclick=()=>{if(roster.length&&confirm('Clear the whole squad list?')){roster=[];renderRoster();}};
-$('#pasteBtn').onclick=()=>{const lines=$('#pasteArea').value.split(/\n+/).map(l=>l.trim()).filter(Boolean);let added=0;
-  lines.forEach(l=>{const parts=l.split(/[,\t;|]+/).map(x=>x.trim());if(!parts[0])return;let size=(parts[2]||'L').toUpperCase().replace(/\s/g,'');if(/^\d+-\d+$/.test(size))size+='Y';if(!ALL_SIZES.includes(size))size='L';roster.push({name:parts[0].slice(0,12),number:(parts[1]||'').replace(/\D/g,'').slice(0,2),size});added++;});
-  $('#pasteArea').value='';renderRoster();toast(added?`Imported ${added} player${added>1?'s':''}`:'Nothing to import — use Name, Number, Size');};
-$('#csvBtn').onclick=()=>{if(!roster.length)return toast('Add players first');const rows=[['#','Name','Number','Size']].concat(roster.map((r,i)=>[i+1,r.name,r.number,r.size]));const csv=rows.map(r=>r.map(x=>`"${String(x).replace(/"/g,'""')}"`).join(',')).join('\n');download(new Blob([csv],{type:'text/csv'}),(S.team||'team').replace(/\s+/g,'-').toLowerCase()+'-squad.csv');toast('Squad list exported');};
-$('#quoteBtn').onclick=()=>{const n=roster.length;if(!n)return toast('Add players first');const sc={};roster.forEach(r=>sc[r.size]=(sc[r.size]||0)+1);
-  const msg=`Hi Sixer Studio! Quote request for team "${S.team||'My Team'}"\nDesign: ${S.pattern} pattern, ${S.collar} collar, colours ${S.c.join(' / ')}\nPlayers: ${n}\nSizes: ${Object.entries(sc).map(([k,v])=>k+'×'+v).join(', ')}\n\n${roster.map((r,i)=>`${i+1}. ${r.name||'-'} #${r.number||'-'} (${r.size})`).join('\n')}\n\nEstimated: ${inr(tierPrice(n))} each, ${inr(tierPrice(n)*n)} total`;
-  copy(msg,'📋 Quote message copied — paste it into WhatsApp or email');};
-$('#teamAdd').onclick=()=>{if(!roster.length)return toast('Add players first');const unit=tierPrice(roster.length);roster.forEach(r=>addToCart({pid:0,title:`${S.team||'Team'} — Team Jersey`,size:r.size,qty:1,price:unit,design:{pattern:S.pattern,c:[...S.c],collar:S.collar},name:(r.name||'').toUpperCase(),number:r.number,team:(S.team||'').toUpperCase()},true));renderCart();toast(`🏏 ${roster.length} jerseys added to cart`);openCart();};
-
-/* ---------- size finder ---------- */
-const CHART=[['S',38,27,16.5],['M',40,28,17],['L',42,29,17.5],['XL',44,30,18],['2XL',46,31,18.5],['3XL',48,32,19],['4XL',50,32.5,19.5],['5XL',52,33,20],['6XL',54,33.5,20.5]];
-let fit='regular',rec='L';
-function recommend(){const h=+$('#hIn').value||0,w=+$('#wIn').value||0;
-  if(h&&h<150&&w<45){rec=h<100?'2-3Y':h<112?'4-5Y':h<124?'6-7Y':h<136?'8-9Y':h<146?'10-11Y':'12-13Y';}
-  else{let i=w<55?0:w<63?1:w<72?2:w<82?3:w<92?4:w<102?5:w<112?6:w<122?7:8;if(h>185&&i<8)i++;if(fit==='loose'&&i<8)i++;if(fit==='slim'&&i>0)i--;rec=ADULT[i];}
-  $('#recOut').textContent=rec;
-  $('#chart tbody').innerHTML=CHART.map(r=>`<tr class="${r[0]===rec?'hl':''}"><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join('');}
-['hIn','wIn'].forEach(k=>$('#'+k).addEventListener('input',recommend));
-$('#fitSeg').onclick=e=>{const b=e.target.closest('button');if(!b)return;fit=b.dataset.fit;$$('#fitSeg button').forEach(x=>x.classList.toggle('active',x===b));recommend();};
-$('#useSize').onclick=()=>{S.size=rec;renderStudio(false);toast(`Size ${rec} selected in the Design Studio`);$('#studio').scrollIntoView();};
-recommend();
-
-/* ---------- cart ---------- */
-function keyOf(i){return JSON.stringify([i.pid,i.title,i.size,i.price,i.design,i.name,i.number,i.team||'']);}
-function addToCart(item,silent){const k=keyOf(item);const ex=cart.find(x=>x.key===k);if(ex)ex.qty+=item.qty;else cart.push({...item,key:k});store.set('ss_cart',cart);updateBadges();if(!silent){renderCart();toast('Added to cart ✓');openCart();}}
-function totals(){const qty=cart.reduce((a,i)=>a+i.qty,0),sub=cart.reduce((a,i)=>a+i.price*i.qty,0);let d=0;
-  if(coupon==='FIRST10'&&sub>=500)d=sub*.10;if(coupon==='TEAM15'&&qty>=11)d=sub*.15;
-  const after=sub-d,ship=after>=999||after===0?0:79;return{qty,sub,d,ship,total:after+ship};}
-function renderCart(){
-  updateBadges();
-  if(!cart.length){$('#cartBody').innerHTML=`<div class="empty" style="padding:60px 10px"><div style="font-size:3rem">🏏</div><p style="margin:10px 0 16px">Your cart is empty.</p><button class="btn btn-dark" data-close onclick="location.hash='shop'">Start shopping</button></div>`;$('#cartFoot').innerHTML='';return;}
-  $('#cartBody').innerHTML=cart.map((i,idx)=>`<div class="ci"><div class="thumb">${jerseySVG({...i.design,side:i.name||i.number?'back':'front',name:i.name,number:i.number,team:i.team})}</div>
-    <div><h4>${esc(i.title)}</h4><small>Size ${i.size}${i.name?` · ${esc(i.name)}`:''}${i.number!==''&&i.number!=null?` #${esc(i.number)}`:''}</small><button class="rm" data-rm="${idx}">Remove</button></div>
-    <div class="right"><b>${inr(i.price*i.qty)}</b><div class="qty"><button data-cq="${idx}" data-d="-1">−</button><span>${i.qty}</span><button data-cq="${idx}" data-d="1">+</button></div></div></div>`).join('');
-  const t=totals();const toFree=Math.max(0,999-(t.sub-t.d));
-  $('#cartFoot').innerHTML=`<div class="ship-note">${toFree>0?`Add <b>${inr(toFree)}</b> more for free shipping`:'🎉 You get <b>free shipping</b>'}<div class="ship-bar"><i style="width:${Math.min(100,(t.sub-t.d)/999*100)}%"></i></div></div>
-    <div class="coupon"><input class="field" id="couponIn" placeholder="Coupon code" value="${coupon||''}"><button class="btn btn-ghost btn-sm" id="couponBtn">Apply</button></div><div class="coupon-msg" id="couponMsg"></div>
-    <div><div class="line"><span>Subtotal (${t.qty} items)</span><span>${inr(t.sub)}</span></div>${t.d?`<div class="line" style="color:var(--ok)"><span>Discount (${coupon})</span><span>−${inr(t.d)}</span></div>`:''}<div class="line"><span>Shipping</span><span>${t.ship?inr(t.ship):'FREE'}</span></div><div class="line total"><span>Total</span><span>${inr(t.total)}</span></div></div>
-    <button class="btn btn-primary btn-block" id="checkoutBtn">Checkout securely →</button>`;
-  $('#couponBtn').onclick=applyCoupon;$('#couponIn').onkeydown=e=>{if(e.key==='Enter')applyCoupon();};
-  $('#checkoutBtn').onclick=openCheckout;
-}
-function applyCoupon(){const c=$('#couponIn').value.trim().toUpperCase();const t=totals();let msg='';
-  if(!c){coupon=null;}else if(c==='FIRST10'){if(t.sub>=500){coupon=c;msg='✓ 10% off applied';}else msg='FIRST10 needs a subtotal of ₹500+';}
-  else if(c==='TEAM15'){if(t.qty>=11){coupon=c;msg='✓ 15% team discount applied';}else msg='TEAM15 needs 11 or more items';}
-  else msg='That code isn’t valid. Try FIRST10 or TEAM15';
-  renderCart();const m=$('#couponMsg');if(m){m.textContent=msg;m.style.color=msg.startsWith('✓')?'var(--ok)':'var(--hot)';}}
-$('#cartBody').addEventListener('click',e=>{const rm=e.target.closest('[data-rm]'),cq=e.target.closest('[data-cq]');
-  if(rm){cart.splice(+rm.dataset.rm,1);}else if(cq){const it=cart[+cq.dataset.cq];it.qty+= +cq.dataset.d;if(it.qty<1)cart.splice(+cq.dataset.cq,1);}else return;
-  store.set('ss_cart',cart);if(coupon){const t=totals();if((coupon==='FIRST10'&&t.sub<500)||(coupon==='TEAM15'&&t.qty<11))coupon=null;}renderCart();});
-function openCart(){renderCart();if(!$('#drawer').classList.contains('open')){$$('.modal.open').forEach(m=>m.classList.remove('open'));openLayer($('#drawer'));}}
-$('#cartBtn').onclick=openCart;
-
-/* ---------- checkout (demo) ---------- */
-function openCheckout(){const t=totals();
-  $('#coContent').innerHTML=`<form class="modal-pad" id="coForm"><h2 style="margin-bottom:4px">Checkout</h2><p class="muted" style="font-size:.85rem;margin-bottom:16px">Demo checkout — no payment is taken.</p>
-  <div class="form-grid"><input class="field" name="n" required placeholder="Full name"><input class="field" name="p" required placeholder="10-digit mobile number" inputmode="numeric"><input class="field" name="a" required placeholder="Address"><div class="row2"><input class="field" name="c" required placeholder="City"><input class="field" name="pin" required placeholder="PIN code" inputmode="numeric"></div>
-  <div class="pay-opts"><label><input type="radio" name="pay" value="UPI" checked><span>UPI</span></label><label><input type="radio" name="pay" value="Card"><span>Card</span></label><label><input type="radio" name="pay" value="COD"><span>Cash on delivery</span></label></div>
-  <div class="warn" id="coErr"></div><button class="btn btn-primary btn-block">Pay ${inr(t.total)}</button></div></form>`;
-  $$('.drawer.open').forEach(d=>d.classList.remove('open'));$('#coModal').classList.add('open');
-  $('#coForm').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);
-    if(!/^\d{10}$/.test(String(f.get('p')).replace(/\s/g,'')))return $('#coErr').textContent='Please enter a valid 10-digit mobile number';
-    if(!/^\d{6}$/.test(String(f.get('pin')).trim()))return $('#coErr').textContent='Please enter a valid 6-digit PIN code';
-    let id;do{id='SS-'+(1100+Math.floor(Math.random()*8900));}while(orders[id]);
-    orders[id]={placed:Date.now(),items:t.qty,total:t.total};store.set('ss_orders',orders);
-    cart=[];coupon=null;store.set('ss_cart',cart);updateBadges();
-    $('#coContent').innerHTML=`<div class="success"><div class="big">🎉</div><h2>Order placed!</h2><p class="muted">Thanks ${esc(String(f.get('n')).split(' ')[0])}! Your order ID is</p><div class="order-id">${id}</div><p class="muted" style="font-size:.88rem;margin-bottom:18px">In this demo the status moves forward every minute.</p><button class="btn btn-dark" id="goTrack">Track this order</button></div>`;
-    $('#goTrack').onclick=()=>{closeAll();$('#trackIn').value=id;showTrack(id);$('#track').scrollIntoView();};};
-}
-
-/* ---------- tracking ---------- */
-const STEPS=[['Order placed','We have received your order'],['Design approved','Names, numbers and sizes checked'],['Printing','Sublimation printing your kit'],['Shipped','Handed over to our courier partner'],['Out for delivery','Arriving today'],['Delivered','Enjoy match day! 🏆']];
-function showTrack(raw){const id=raw.trim().toUpperCase();const o=orders[id];
-  if(!o){$('#trackOut').innerHTML=`<p class="warn" style="margin-top:16px">We couldn't find order “${esc(id)}”. Check the ID, or try SS-1024.</p>`;return;}
-  const st=o.fixed!=null?o.fixed:Math.min(5,Math.floor((Date.now()-o.placed)/60000));
-  const d=new Date(o.placed);
-  $('#trackOut').innerHTML=`<div class="box" style="margin-top:20px"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px"><b>Order ${esc(id)}</b><span class="muted">${o.items} item${o.items>1?'s':''} · ${inr(o.total)} · placed ${d.toLocaleDateString('en-IN',{day:'numeric',month:'short'})}</span></div>
-  <ul class="timeline">${STEPS.map((s,i)=>`<li class="${i<st?'done':i===st?'current':''}"><span class="dot"></span>${s[0]}<small>${s[1]}</small></li>`).join('')}</ul></div>`;}
-$('#trackForm').onsubmit=e=>{e.preventDefault();showTrack($('#trackIn').value||'SS-1024');};
-
-/* ---------- chat ---------- */
-const QA={'Sizes?':'We stock kids 2–3 yrs up to adult 6XL. Use the Size Finder on this page for a recommendation.','Delivery time?':'Printing takes 3–4 business days, delivery 5–8 more. Team orders of 11+ take about 20 days.','Team discount?':'Prices drop automatically: ₹499 (1–10), ₹449 (11–20), ₹399 (21+). Use TEAM15 for an extra 15% on 11+ items.','Returns?':'Personalised jerseys can’t be returned. Plain items can be returned within 7 days, unworn with tags.','Other sports?':'Yes — football, kabaddi, volleyball and badminton kits for team orders.'};
-function addMsg(t,who){const m=document.createElement('div');m.className='msg '+who;m.textContent=t;$('#chatLog').appendChild(m);$('#chatLog').scrollTop=1e6;}
-let chatInit=false;
-function toggleChat(force){const c=$('#chat');const open=force!=null?force:!c.classList.contains('open');c.classList.toggle('open',open);
-  if(open&&!chatInit){chatInit=true;addMsg('Hi! 👋 Need help choosing a jersey? Tap a question below.','bot');$('#quick').innerHTML=Object.keys(QA).map(q=>`<button>${q}</button>`).join('');}}
-$('#fab').onclick=()=>toggleChat();$('#chatClose').onclick=()=>toggleChat(false);
-$('#footChat').onclick=e=>{e.preventDefault();toggleChat(true);};
-$('#quick').onclick=e=>{const b=e.target.closest('button');if(!b)return;addMsg(b.textContent,'me');setTimeout(()=>addMsg(QA[b.textContent],'bot'),450);};
-
-/* ---------- newsletter ---------- */
-$('#newsForm').onsubmit=e=>{e.preventDefault();e.target.reset();toast('🎉 You’re on the list! Watch your inbox for new drops.');};
-
-/* ---------- init ---------- */
-renderProducts();renderStudio();renderRoster();updateBadges();renderCart();
-if(/design=/.test(location.hash))setTimeout(()=>{$('#studio').scrollIntoView();toast('Shared design loaded 🎨');},300);
-})();
-</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/jersey.js"></script>
+<script src="js/data.js"></script>
+<script src="js/store.js"></script>
 </body>
 </html>
