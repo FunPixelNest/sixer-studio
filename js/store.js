@@ -17,9 +17,7 @@
   /* ---------- small UI helpers ---------- */
   let tt; function toast(m) { const t = $('#toast'); t.textContent = m; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 2600); }
   const root = document.documentElement;
-  function applyTheme(t) { if (t) root.setAttribute('data-theme', t); else root.removeAttribute('data-theme'); }
-  applyTheme(ls.get('ss_theme', null));
-  $('#themeBtn').onclick = () => { const cur = root.getAttribute('data-theme'); const dark = cur ? cur === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; const t = dark ? 'light' : 'dark'; applyTheme(t); ls.set('ss_theme', t); };
+  root.setAttribute('data-theme', 'light'); // customer store always uses the white theme
   $('#menuBtn').onclick = () => $('#navLinks').classList.toggle('open');
   $$('#navLinks a').forEach(a => a.addEventListener('click', () => $('#navLinks').classList.remove('open')));
   $('#yr').textContent = new Date().getFullYear();
