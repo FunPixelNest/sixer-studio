@@ -39,7 +39,8 @@
     } else {
       collar = side === 'front' ? `<path d="M96 22 Q150 60 204 22 L196 18 Q150 50 104 18Z" fill="${c3}"/>` : `<path d="M96 22 Q150 36 204 22 L198 18 Q150 30 102 18Z" fill="${c3}"/>`;
     }
-    const font = `font-family="Bebas Neue,Impact,Arial Narrow,sans-serif" text-anchor="middle" fill="${c3}" stroke="rgba(0,0,0,.35)" stroke-width="2.5" paint-order="stroke"`;
+    const fontW = w => `font-family="Bebas Neue,Impact,Arial Narrow,sans-serif" text-anchor="middle" font-weight="700" fill="${c3}" stroke="rgba(0,0,0,.35)" stroke-width="${w}" paint-order="stroke"`;
+    const font = fontW(2.5);
     let txt = '';
     const name = String(o.name || '').toUpperCase().slice(0, 12), team = String(o.team || '').toUpperCase().slice(0, 14);
     const num = (o.number === '' || o.number == null) ? '' : String(o.number).slice(0, 2);
@@ -48,7 +49,7 @@
       if (num) txt += `<text x="196" y="122" font-size="26" ${font}>${esc(num)}</text>`;
     } else {
       if (name) { const fs = Math.min(40, 200 / (name.length * 0.48 + 0.6)); txt += `<text x="150" y="104" font-size="${fs.toFixed(1)}" ${font}>${esc(name)}</text>`; }
-      if (num) txt += `<text x="150" y="232" font-size="120" ${font} stroke-width="4">${esc(num)}</text>`;
+      if (num) txt += `<text x="150" y="232" font-size="120" ${fontW(4)}>${esc(num)}</text>`;
     }
     return `<svg viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jersey ${side} view"><defs><clipPath id="${id}c"><path d="${BODY}"/></clipPath><linearGradient id="${id}s" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".5" stop-color="#fff" stop-opacity=".07"/><stop offset="1" stop-color="#000" stop-opacity=".22"/></linearGradient></defs><g clip-path="url(#${id}c)"><rect width="300" height="340" fill="${c1}"/>${pat}${cuffs}<rect width="300" height="340" fill="url(#${id}s)"/></g>${collar}${txt}<path d="${BODY}" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="2"/></svg>`;
   }
