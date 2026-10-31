@@ -88,3 +88,26 @@ insert into admins (email) values ('friend@example.com');
 | `js/config.js` | **Your Supabase keys go here** |
 | `css/style.css` | All styles |
 | `supabase/setup.sql` | Database, security rules and photo storage |
+
+## Admin app (Android)
+
+**Sixer Admin** is an Android app that opens the admin panel full screen. It's only for the shop owner; customers use the website.
+
+- **Download:** `https://funpixelnest.github.io/sixer-studio/downloads/sixer-admin.apk`. Open the link on the phone and install it. Android will ask you to allow installs from your browser the first time.
+- Log in with your admin e-mail. The app keeps you logged in.
+- **WhatsApp** buttons open WhatsApp, phone numbers open the dialler, and **View store** opens the browser.
+- **Add product → photos** opens the phone gallery. You can pick several photos at once.
+- **Export CSV** saves the orders file to the phone's **Downloads** folder.
+- The phone's back button closes pop-ups, then exits.
+- New orders are fetched every time you open the app (and every minute while it's open).
+
+The app loads the live admin page, so any website change is in the app instantly, with no app update needed.
+
+### Building the app
+Source code is in `android-admin/`. You need the Android SDK and the signing key `sixer-admin-release.jks`, which is **not** in this repo. Keep it safe: future updates must be signed with the same key.
+```
+cd android-admin
+# create keystore.properties with storeFile, storePassword, keyAlias, keyPassword
+gradle assembleRelease
+# → app/build/outputs/apk/release/app-release.apk
+```

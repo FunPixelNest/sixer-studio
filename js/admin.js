@@ -159,7 +159,9 @@
     const rows = [['Order', 'Date', 'Status', 'Delivery date', 'Name', 'Phone', 'Email', 'Address', 'City', 'PIN', 'Item', 'Size', 'Qty', 'Print name', 'Number', 'Line total', 'Order total', 'Customer note']];
     ORDERS.forEach(o => (o.items || []).forEach(i => rows.push([o.id, new Date(o.created_at).toLocaleDateString('en-IN'), o.status, o.delivery_date || '', o.customer_name, o.phone, o.email || '', o.address, o.city, o.pincode, i.title, i.size, i.qty, i.name || '', i.number || '', i.price * i.qty, o.total, o.note || ''])));
     const csv = rows.map(r => r.map(x => `"${String(x == null ? '' : x).replace(/"/g, '""')}"`).join(',')).join('\n');
-    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['﻿' + csv], { type: 'text/csv' })); a.download = 'orders-' + new Date().toISOString().slice(0, 10) + '.csv'; document.body.appendChild(a); a.click(); setTimeout(() => a.remove(), 300);
+    const fname = 'orders-' + new Date().toISOString().slice(0, 10) + '.csv';
+    if (window.SixerApp && SixerApp.saveFile) { SixerApp.saveFile(fname, 'text/csv', '\ufeff' + csv); return; } // Android admin app
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['﻿' + csv], { type: 'text/csv' })); a.download = fname; document.body.appendChild(a); a.click(); setTimeout(() => a.remove(), 300);
   }
 
   /* ================= products ================= */
